@@ -121,6 +121,9 @@ p {
 .logo .accent {
   color: var(--accent-color);
 }
+.site-nav .link {
+  position: relative;
+}
 
 .site-nav,
 .contacts-nav {
@@ -148,6 +151,18 @@ p {
 
 .site-nav .link.current {
   color: var(--accent-color);
+}
+
+.site-nav .link.current::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  left: 0;
+  bottom: 0;
+
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 
 .contacts-nav .link {
@@ -673,6 +688,45 @@ p {
   /* border-top-left-radius: 5px;
   border-top-right-radius: 5px; 
   overflow: hidden;*/
+}
+
+.card-thumb {
+  position: relative;
+}
+
+.card-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+
+  padding: 63px 24px;
+  color: var(--primary-white-color);
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+}
+
+.card:hover .card-description,
+.card:hover .card-thumb::before {
+  opacity: 1;
+}
+
+.card-thumb::before {
+  display: inline-block;
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  opacity: 0;
 }
 
 .card-content {
